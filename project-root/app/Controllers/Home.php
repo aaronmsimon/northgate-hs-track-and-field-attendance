@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\AthletesModel;
 use App\Models\AttendanceModel;
+use App\Models\MessagesModel;
 
 class Home extends BaseController
 {
@@ -22,11 +23,11 @@ class Home extends BaseController
     {
         helper('form');
 
-        $data = $this->request->getPost(['student-id']);
+        $student = $this->request->getPost(['student-id']);
 
         // Checks whether the submitted data passed the validation rules.
-        if (! $this->validateData($data, [
-            'student-id' => 'required|max_length[7]|min_length[7]',
+        if (! $this->validateData($student, [
+            'student-id' => 'required|numeric|max_length[7]|min_length[7]',
         ])) {
             // The validation fails, so returns the form.
             return $this->index();
@@ -36,16 +37,19 @@ class Home extends BaseController
         $post = $this->validator->getValidated();
 
         // Find the athlete
-        $model = model(AthletesModel::class);
-
-        $athlete = $model->findAthlete($post['student-id']);
+        $athletesmodel = model(AthletesModel::class);
+        $data['athlete'] = $athletesmodel->findAthlete($post['student-id']);
         
         // if success then:
-        $checkin = model(AttendanceModel::class);
-        $checkin->checkIn($athlete['studentid']);
+        $attendancemodel = model(AttendanceModel::class);
+        $attendancemodel->checkIn($data['athlete']['studentid']);
+
+        // get a message
+        $messages = model(MessagesModel::class);
+        $data['message'] = $messages->getMessage();
 
         return view('templates/header', ['title' => 'Check in Complete'])
-            . view('pages/success', $athlete)
+            . view('pages/success', $data)
             . view('templates/footer');
     }
 }

@@ -18,7 +18,7 @@ class AttendanceModel extends Model
 
         $data = [
             'studentid' => $studentid,
-            'checkin' => $datecreated
+            'checkin' => $datecreated,
         ];
 
         $this->insert($data);
