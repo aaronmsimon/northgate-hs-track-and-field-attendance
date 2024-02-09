@@ -7,7 +7,7 @@
 
 ![Northgate Broncos](https://github.com/aaronmsimon/northgate-hs-track-and-field-attendance/blob/main/project-root/public/img/BroncosOfficialLogo2016yellowgold.png?raw=true)
 
-<a href="http://www.northgatetrackandfieldcheck.in/index.php/check-in"><img src="https://raw.githubusercontent.com/aaronmsimon/northgate-hs-track-and-field-attendance/main/project-root/public/img/qr-code-attendance.png" /></a>
+<a href="http://www.northgatetrackandfieldcheck.in/index.php/check-in"><img src="https://raw.githubusercontent.com/aaronmsimon/northgate-hs-track-and-field-attendance/main/project-root/public/img/qr-code-attendance.png" width="250"/></a>
 
 ## Version History
 | Version | Release Date | Description |
