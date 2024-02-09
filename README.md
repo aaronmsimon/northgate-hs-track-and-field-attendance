@@ -1,6 +1,13 @@
 # Northgate High School Track and Field Attendance Tracker
 
+![GitHub License](https://img.shields.io/github/license/aaronmsimon/northgate-hs-track-and-field-attendance)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/aaronmsimon/northgate-hs-track-and-field-attendance)
+![GitHub last commit](https://img.shields.io/github/last-commit/aaronmsimon/northgate-hs-track-and-field-attendance)
+![GitHub language count](https://img.shields.io/github/languages/count/aaronmsimon/northgate-hs-track-and-field-attendance)
+
 ![Northgate Broncos](https://github.com/aaronmsimon/northgate-hs-track-and-field-attendance/blob/main/project-root/public/img/BroncosOfficialLogo2016yellowgold.png?raw=true)
+
+<a href="http://www.northgatetrackandfieldcheck.in/index.php/check-in"><img src="https://raw.githubusercontent.com/aaronmsimon/northgate-hs-track-and-field-attendance/main/project-root/public/img/qr-code-attendance.png" /></a>
 
 ## Version History
 | Version | Release Date | Description |
