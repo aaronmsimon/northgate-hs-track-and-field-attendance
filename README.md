@@ -30,9 +30,14 @@
 2. Add badges (gamification)
 3. Add leaderboards
 
+### Formatting
+1. Make quote box wider
+2. Add flare to design instead of solid background
+
 ### Technical Improvements
-1. Add year to roster to avoid having to clear database each season
-2. Fix Mod Rewrite to remove index.php in URL
-3. Disable check-in based on time of day
-4. Track during meets?
-5. Add geocoding to check-in?
+1. Add SSL certificates
+2. Add year to roster to avoid having to clear database each season
+3. Fix Mod Rewrite to remove index.php in URL
+4. Disable check-in based on time of day
+5. Track during meets?
+6. Add geocoding to check-in?
