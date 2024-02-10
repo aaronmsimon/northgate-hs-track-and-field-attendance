@@ -17,13 +17,14 @@
 ## Backlog
 
 ### Error Handling
-~~1. Format the validation error so it appears in a more user-friendly way~~
+1. ~~Format the validation error so it appears in a more user-friendly way~~
 2. Enable new student (no record in DB) tracking
 
 ### Coaches' Features
-1. View student attendance
+1. View student attendance over time
 2. View student roster with filters for gender and grade
 3. Export attendance to CSV
+4. View attendance on a particular day
 
 ### Fun Features
 1. Add birthday message
@@ -31,7 +32,7 @@
 3. Add leaderboards
 
 ### Formatting
-~~1. Make quote box wider~~
+1. ~~Make quote box wider~~
 2. Add flare to design instead of solid background
 
 ### Technical Improvements
