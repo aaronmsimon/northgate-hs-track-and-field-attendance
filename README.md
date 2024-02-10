@@ -17,7 +17,7 @@
 ## Backlog
 
 ### Error Handling
-1. Format the validation error so it appears in a more user-friendly way
+~~1. Format the validation error so it appears in a more user-friendly way~~
 2. Enable new student (no record in DB) tracking
 
 ### Coaches' Features
@@ -31,7 +31,7 @@
 3. Add leaderboards
 
 ### Formatting
-1. Make quote box wider
+~~1. Make quote box wider~~
 2. Add flare to design instead of solid background
 
 ### Technical Improvements
@@ -41,3 +41,4 @@
 4. Disable check-in based on time of day
 5. Track during meets?
 6. Add geocoding to check-in?
+7. Max one check-in per day

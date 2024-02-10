@@ -13,17 +13,17 @@
         body {
             background-color: #9c1f2e;
             color: #FFF;
-            font-family: Arial, sans-serif;
+            font-family: Calibri, sans-serif;
         }
     </style>
 </head>
 <body>
     <div class="container text-center">
-        <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row justify-content-center mt-5">
             <div class="col mx-3">
                 <img src="<?= base_url() ?>img/BroncosOfficialLogo2016yellowgold.png" alt="Northgate Broncos" class="img-fluid"></img>
             </div>
             <div class="col d-flex align-items-center">
-                <h2>Northgate Broncos Track & Field Attendance</h2>
+                <h5>Northgate Broncos Track & Field Attendance</h5>
             </div>
         </div>
