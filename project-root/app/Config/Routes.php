@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/','Home::index');
 $routes->get('check-in', 'Home::index');
 $routes->post('check-in', 'Home::checkin');
+$routes->get('leaderboard', 'Leaderboard::index');

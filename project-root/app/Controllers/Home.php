@@ -15,6 +15,7 @@ class Home extends BaseController
         $data['title'] = 'Northgate Highschool Track & Field Attendance';
 
         return view('templates/header', $data)
+            . view('templates/navigation', ['activepage' => 'check-in'])
             . view('pages/check-in')
             . view('templates/footer');
     }
@@ -60,6 +61,7 @@ class Home extends BaseController
         }
 
         return view('templates/header', ['title' => 'Check in Complete'])
+            . view('templates/navigation', ['activepage' => 'check-in'])
             . view('pages/success', $data)
             . view('templates/footer');
     }

@@ -28,15 +28,18 @@
 ### Fun Features
 1. ~~Add birthday message~~
 2. Add badges (gamification)
-3. Add leaderboards
+3. ~~Add leaderboards~~
+4. Longest check-in streak
 
 ### Formatting
-1. Add flare to design instead of solid background
+1. Add flare to design instead of  solid background
 
 ### Technical Improvements
 1. Add SSL certificates
 2. Add year to roster to avoid having to clear database each season
 3. Disable check-in based on time of day
-4. Track during meets?
-5. Add geocoding to check-in?
-6. Max one check-in per day
+4. Max one check-in per day
+5. Add geocoding to check-in (maybe)
+
+### Questions
+1. Should this be used for meets?
