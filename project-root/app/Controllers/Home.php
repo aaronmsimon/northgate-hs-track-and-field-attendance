@@ -44,9 +44,20 @@ class Home extends BaseController
         $attendancemodel = model(AttendanceModel::class);
         $attendancemodel->checkIn($data['athlete']['studentid']);
 
-        // get a message
-        $messages = model(MessagesModel::class);
-        $data['message'] = $messages->getMessage();
+        // get a message or birthday
+        date_default_timezone_set('America/Los_Angeles');
+        $birthdate = date_create_from_format('Y-m-d',$data['athlete']['dob']);
+        if (date_format($birthdate,'m-d') == date('m-d'))
+        {
+            $data['message'] = array(
+                'message' => 'Happy Birthday!',
+                'author' => NULL,
+            );
+        } else
+        {
+            $messages = model(MessagesModel::class);
+            $data['message'] = $messages->getMessage();
+        }
 
         return view('templates/header', ['title' => 'Check in Complete'])
             . view('pages/success', $data)

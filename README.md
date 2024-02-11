@@ -26,7 +26,7 @@
 4. View attendance on a particular day
 
 ### Fun Features
-1. Add birthday message
+1. ~~Add birthday message~~
 2. Add badges (gamification)
 3. Add leaderboards
 
@@ -36,8 +36,7 @@
 ### Technical Improvements
 1. Add SSL certificates
 2. Add year to roster to avoid having to clear database each season
-3. ~~Fix Mod Rewrite to remove index.php in URL~~
-4. Disable check-in based on time of day
-5. Track during meets?
-6. Add geocoding to check-in?
-7. Max one check-in per day
+3. Disable check-in based on time of day
+4. Track during meets?
+5. Add geocoding to check-in?
+6. Max one check-in per day
