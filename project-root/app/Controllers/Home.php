@@ -40,6 +40,22 @@ class Home extends BaseController
         // Find the athlete
         $athletesmodel = model(AthletesModel::class);
         $data['athlete'] = $athletesmodel->findAthlete($post['student-id']);
+
+        // If not found, then throw error
+        $athlete['noathlete'] = $data['athlete'];
+        if (! $this->validateData($athlete, [
+            'noathlete' => 'required',
+        ])) {
+            // The validation fails, so returns the form.
+            return $this->index();
+        }
+
+        if (is_null($data['athlete']))
+        {
+            // The validation fails, so returns the form.
+            $errors['noathlete'] = 'Athlete is not on the roster.';
+            return $this->index();
+        }
         
         // if success then:
         $attendancemodel = model(AttendanceModel::class);

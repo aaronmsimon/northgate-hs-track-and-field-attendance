@@ -38,7 +38,8 @@
 2. Add year to roster to avoid having to clear database each season
 3. Disable check-in based on time of day
 4. Max one check-in per day
-5. Add geocoding to check-in (maybe)
+5. Look for security risks and prevent SQL injection
+6. Add geocoding to check-in (maybe)
 
 ### Questions
 1. Should this be used for meets?

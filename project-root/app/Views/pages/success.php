@@ -5,7 +5,7 @@
         <div class="d-flex flex-row mt-3 justify-content-center">
             <div class="col-8 alert alert-secondary">
                 <div class="row">
-                    <h3>"<?= $message['message'] ?>"</h3>
+                    <h3><?= (!is_null($message['author']) ? '"' : '') . $message['message'] . (!is_null($message['author']) ? '"' : ''); ?></h3>
                 </div>
                 <?php if (!is_null($message['author']))
                 {

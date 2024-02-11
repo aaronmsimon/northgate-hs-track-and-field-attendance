@@ -37,6 +37,7 @@ class Validation extends BaseConfig
         'list'   => 'CodeIgniter\Validation\Views\list',
         'single' => 'CodeIgniter\Validation\Views\single',
         'studentid' => 'errors/validation/checkin',
+        'noathlete' => 'errors/validation/noathlete',
     ];
 
     // --------------------------------------------------------------------
