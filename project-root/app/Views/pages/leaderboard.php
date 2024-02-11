@@ -3,7 +3,7 @@
                 <table class="table table-light">
                     <thead>
                         <tr>
-                            <th scope="col">Athlete</th>
+                            <th scope="col" class="col-6">Athlete</th>
                             <th scope="col">Check-Ins</th>
                         </tr>
                     </thead>
@@ -11,7 +11,7 @@
                         <?php foreach ($attendance as $student): ?>
                         <tr>
                             <td class="col-6 text-start ps-4"><?= esc($student['firstname']) . ' ' . esc($student['lastname']) ?></td>
-                            <td class="col-2 text-end pe-4"><?= esc($student['checkins']) ?></td>
+                            <td class="text-end pe-4"><?= esc($student['checkins']) ?></td>
                         </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -23,7 +23,7 @@
                 <table class="table table-light">
                     <thead>
                         <tr>
-                            <th scope="col">Athlete</th>
+                            <th scope="col" class="col-6">Athlete</th>
                             <th scope="col">Perfect Weeks</th>
                         </tr>
                     </thead>
@@ -31,7 +31,7 @@
                         <?php foreach ($completeweeks as $student): ?>
                         <tr>
                             <td class="col-6 text-start ps-4"><?= esc($student['firstname']) . ' ' . esc($student['lastname']) ?></td>
-                            <td class="col-2 text-end pe-4"><?= esc($student['completeweeks']) ?></td>
+                            <td class="text-end pe-4"><?= esc($student['completeweeks']) ?></td>
                         </tr>
                         <?php endforeach ?>
                     </tbody>

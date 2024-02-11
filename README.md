@@ -26,10 +26,9 @@
 4. View attendance on a particular day
 
 ### Fun Features
-1. ~~Add birthday message~~
-2. Add badges (gamification)
-3. ~~Add leaderboards~~
-4. Longest check-in streak
+1. Add badges (gamification)
+2. Leaderboard ideas
+    - Longest check-in streak
 
 ### Formatting
 1. Add flare to design instead of  solid background
