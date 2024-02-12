@@ -56,6 +56,12 @@ class Home extends BaseController
             $errors['noathlete'] = 'Athlete is not on the roster.';
             return $this->index();
         }
+
+        // Check if coach login and go to coaches page
+        if ($data['athlete']['gradelevelid'] == 0)
+        {
+            return redirect()->to('/coaches');
+        }
         
         // if success then:
         $attendancemodel = model(AttendanceModel::class);

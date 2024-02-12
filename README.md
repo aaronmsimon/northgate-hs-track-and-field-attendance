@@ -18,12 +18,13 @@
 
 ### Error Handling
 1. Enable new student (no record in DB) tracking
+    - partially handled - error message will be thrown
 
 ### Coaches' Features
 1. View student attendance over time
 2. View student roster with filters for gender and grade
 3. Export attendance to CSV
-4. View attendance on a particular day
+4. ~~View attendance on a particular day~~
 
 ### Fun Features
 1. Add badges (gamification)
@@ -34,12 +35,13 @@
 1. Add flare to design instead of  solid background
 
 ### Technical Improvements
-1. Add SSL certificates
-2. Add year to roster to avoid having to clear database each season
-3. Disable check-in based on time of day
-4. Max one check-in per day
-5. Look for security risks and prevent SQL injection
-6. Add geocoding to check-in (maybe)
+1. No direct access to coaches page
+2. Add SSL certificates
+3. Add year to roster to avoid having to clear database each season
+4. Disable check-in based on time of day
+5. Max one check-in per day
+6. Look for security risks and prevent SQL injection
+7. Add geocoding to check-in (maybe)
 
 ### Questions
 1. Should this be used for meets?
