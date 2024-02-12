@@ -24,7 +24,6 @@
 1. View student attendance over time
 2. View student roster with filters for gender and grade
 3. Export attendance to CSV
-4. ~~View attendance on a particular day~~
 
 ### Fun Features
 1. Add badges (gamification)
@@ -36,10 +35,10 @@
 
 ### Technical Improvements
 1. No direct access to coaches page
-2. Add SSL certificates
+2. ~~Add SSL certificates~~
 3. Add year to roster to avoid having to clear database each season
 4. Disable check-in based on time of day
-5. Max one check-in per day
+5. ~~Max one check-in per day~~
 6. Look for security risks and prevent SQL injection
 7. Add geocoding to check-in (maybe)
 

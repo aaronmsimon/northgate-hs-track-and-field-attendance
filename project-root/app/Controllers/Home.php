@@ -65,7 +65,15 @@ class Home extends BaseController
         
         // if success then:
         $attendancemodel = model(AttendanceModel::class);
-        $attendancemodel->checkIn($data['athlete']['studentid']);
+        $insertid['insertid'] = $attendancemodel->checkIn($data['athlete']['studentid']);
+
+        // If they've already logged in today, it will return 0;
+        if (! $this->validateData($insertid, [
+            'insertid' => 'greater_than[0]',
+        ])) {
+            // The validation fails, so returns the form.
+            return $this->index();
+        }
 
         // get a message or birthday
         date_default_timezone_set('America/Los_Angeles');

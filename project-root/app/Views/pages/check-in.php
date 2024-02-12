@@ -5,6 +5,7 @@
                     <?= session()->getFlashdata('error') ?>
                     <?= validation_list_errors('studentid') ?>
                     <?= validation_list_errors('noathlete') ?>
+                    <?= validation_list_errors('insertid') ?>
                 </div>
                 <div class="d-flex flex-row justify-content-center">
                     <form action="/check-in" method="post" class="col-8">

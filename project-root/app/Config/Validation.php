@@ -38,6 +38,7 @@ class Validation extends BaseConfig
         'single' => 'CodeIgniter\Validation\Views\single',
         'studentid' => 'errors/validation/checkin',
         'noathlete' => 'errors/validation/noathlete',
+        'insertid' => 'errors/validation/alreadycheckedin',
     ];
 
     // --------------------------------------------------------------------
