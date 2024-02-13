@@ -42,8 +42,8 @@ $(document).ready(function(){
     // Roster
     function updateRoster() {
         // CSRF Hash
-        var csrfName = $('#roster_token').attr('name'); // CSRF Token name
-        var csrfHash = $('#roster_token').val(); // CSRF hash
+        var csrfName = $('.txt_csrfname').attr('name'); // CSRF Token name
+        var csrfHash = $('.txt_csrfname').val(); // CSRF hash
         var gender = $('#gender').val();
         var grade = $('#grade').val();
     
@@ -57,7 +57,7 @@ $(document).ready(function(){
                  $("#athlete-list").append(response.tabledata.html);
     
                  // Update CSRF hash
-                 $('#roster_token').val(response.token);
+                 $('.txt_csrfname').val(response.token);
     
                  // Display total
                  $("#athlete-count").html(Object.keys(response.tabledata.table).length);
@@ -122,7 +122,6 @@ $(document).ready(function(){
                     </select>
                 </div>
                 <div class="d-flex flex-row mt-3 justify-content-center overflow-scroll" style="max-height: 250px;">
-                    <input type="hidden" id="roster_token" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
                     <table class="table table-warning table-striped">
                         <thead><tr>
                             <th>Last</th>
