@@ -64,7 +64,10 @@ class AttendanceModel extends Model
         foreach ($rows as $row) {
             $html .= '<tr><td>' . $row['firstname'] . ' ' . $row['lastname'] . '</td></tr>';
         }
+        
+        $data['html'] = $html;
+        $data['table'] = $rows;
 
-        return $html;
+        return $data;
     }
 }

@@ -27,10 +27,13 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(response){
                 $("#attendance-list tr").remove();
-                $("#attendance-list").append(response.tabledata);
+                $("#attendance-list").append(response.tabledata.html);
 
                 // Update CSRF hash
                 $('.txt_csrfname').val(response.token);
+
+                // Display total
+                $("#total-attendance").removeClass("d-none").html("Total Attendance: " + Object.keys(response.tabledata.table).length);
             }
         });
     });
@@ -51,6 +54,7 @@ $(document).ready(function(){
                 <label for="attendancedate">Date</label>
                 <input type="date" id="attendancedate" name="attendancedate" value="<?php date_default_timezone_set('America/Los_Angeles');echo date('Y-m-d'); ?>">
                 <button type="submit" class="btn btn-dark" id="view-attendance">View Attendance</button>
+                <span class="ms-3 d-none" id="total-attendance">Total Attendance: 5</span>
                 <div class="d-flex flex-row mt-3 justify-content-center overflow-scroll" style="max-height: 250px;">
                     <table>
                         <thead><tr><th>Athlete</th></tr></thead>
