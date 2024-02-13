@@ -22,7 +22,7 @@
 
 ### Coaches' Features
 1. View student attendance over time
-2. View student roster with filters for gender and grade
+2. ~~View student roster with filters for gender and grade~~
 3. Export attendance to CSV
 
 ### Fun Features
@@ -35,12 +35,11 @@
 
 ### Technical Improvements
 1. No direct access to coaches page
-2. ~~Add SSL certificates~~
-3. Add year to roster to avoid having to clear database each season
+2. Add year to roster to avoid having to clear database each season
+3. Fix double validation errors appearing
 4. Disable check-in based on time of day
-5. ~~Max one check-in per day~~
-6. Look for security risks and prevent SQL injection
-7. Add geocoding to check-in (maybe)
+5. Look for security risks and prevent SQL injection
+6. Add geocoding to check-in (maybe)
 
 ### Questions
 1. Should this be used for meets?

@@ -14,6 +14,7 @@
 </style>
 <script>
 $(document).ready(function(){
+    // Attendance
     $("#view-attendance").click(function(){
        // CSRF Hash
        var csrfName = $('.txt_csrfname').attr('name'); // CSRF Token name
@@ -37,6 +38,40 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Roster
+    function updateRoster() {
+        // CSRF Hash
+        var csrfName = $('#roster_token').attr('name'); // CSRF Token name
+        var csrfHash = $('#roster_token').val(); // CSRF hash
+        var gender = $('#gender').val();
+        var grade = $('#grade').val();
+    
+         $.ajax({
+             url: "<?= base_url('coaches/roster') ?>",
+             method: 'post',
+             data: {gender: gender,grade: grade,[csrfName]:csrfHash},
+             dataType: 'json',
+             success: function(response){
+                 $("#athlete-list tr").remove();
+                 $("#athlete-list").append(response.tabledata.html);
+    
+                 // Update CSRF hash
+                 $('#roster_token').val(response.token);
+    
+                 // Display total
+                 $("#athlete-count").html(Object.keys(response.tabledata.table).length);
+             }
+         });
+    }
+    $("#gender").change(function(){
+        updateRoster();
+    });
+    $("#grade").change(function(){
+        updateRoster();
+    });
+    
+    updateRoster();
 });
 </script>
 
@@ -54,7 +89,7 @@ $(document).ready(function(){
                 <label for="attendancedate">Date</label>
                 <input type="date" id="attendancedate" name="attendancedate" value="<?php date_default_timezone_set('America/Los_Angeles');echo date('Y-m-d'); ?>">
                 <button type="submit" class="btn btn-dark" id="view-attendance">View Attendance</button>
-                <span class="ms-3 d-none" id="total-attendance">Total Attendance: 5</span>
+                <span class="ms-3 d-none" id="total-attendance"></span>
                 <div class="d-flex flex-row mt-3 justify-content-center overflow-scroll" style="max-height: 250px;">
                     <table>
                         <thead><tr><th>Athlete</th></tr></thead>
@@ -67,12 +102,40 @@ $(document).ready(function(){
     <div class="accordion-item">
         <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                Team Roster (WIP)
+                Team Roster
             </button>
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-
+                <div class="row">
+                    <select class="form-select w-auto me-3" id="gender">
+                        <option value="0" selected>All Genders</option>
+                        <?php foreach ($genders as $gender): ?>
+                            <option value="<?= esc($gender['id']) ?>"><?= esc($gender['team']) ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <select class="form-select w-auto" id="grade">
+                        <option value="0" selected>All Grades</option>
+                        <?php foreach ($gradelevels as $gradelevel): ?>
+                            <option value="<?= esc($gradelevel['id']) ?>"><?= esc($gradelevel['name']) ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div class="d-flex flex-row mt-3 justify-content-center overflow-scroll" style="max-height: 250px;">
+                    <input type="hidden" id="roster_token" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" />
+                    <table class="table table-warning table-striped">
+                        <thead><tr>
+                            <th>Last</th>
+                            <th>First</th>
+                            <th>Grade</th>
+                            <th>Team</th>
+                        </tr></thead>
+                        <tbody id="athlete-list"><tr></tr></tbody>
+                    </table>
+                </div>
+                <div class="mt-3">
+                    Athlete Count: <span id="athlete-count"></span>
+                </div>
             </div>
         </div>
     </div>
