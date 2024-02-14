@@ -31,15 +31,15 @@
     - Longest check-in streak
 
 ### Formatting
-1. Add flare to design instead of  solid background
+1. Add flare to design instead of solid background
 
 ### Technical Improvements
 1. No direct access to coaches page
-2. Add year to roster to avoid having to clear database each season
+2. ~~Add year to roster to avoid having to clear database each season~~  sort of (no validation for finding active/current year student)
 3. Fix double validation errors appearing
 4. Disable check-in based on time of day
 5. Look for security risks and prevent SQL injection
-6. Add geocoding to check-in (maybe)
+6. Add geocoding to check-in
 
 ### Questions
 1. Should this be used for meets?

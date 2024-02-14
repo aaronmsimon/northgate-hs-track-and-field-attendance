@@ -20,6 +20,13 @@ class AthletesModel extends Model
         $builder = $this->db->table('attendance');
         $builder->select('athletes.firstname,athletes.lastname,COUNT(*) AS checkins');
         $builder->join('athletes', 'attendance.studentid = athletes.studentid');
+        $builder->join('gender', 'athletes.genderid = gender.id');
+        $builder->join('status', 'athletes.statusid = status.id');
+        $builder->where([
+            'gender.name <>' => 'coach',
+            'status.status' => 'Active',
+            'athletes.schoolyear' => date('Y'),
+        ]);
         $builder->groupBy('attendance.studentid');
         $builder->orderBy('checkins DESC,athletes.lastname ASC,athletes.firstname ASC');
 
@@ -33,6 +40,13 @@ class AthletesModel extends Model
         $subquery = $this->db->table('attendance');
         $subquery->select('athletes.studentid,athletes.firstname,athletes.lastname,WEEK(checkin,1) AS week,COUNT(*) AS checkins');
         $subquery->join('athletes', 'attendance.studentid = athletes.studentid');
+        $subquery->join('gender', 'athletes.genderid = gender.id');
+        $subquery->join('status', 'athletes.statusid = status.id');
+        $subquery->where([
+            'gender.name <>' => 'coach',
+            'status.status' => 'Active',
+            'athletes.schoolyear' => date('Y'),
+        ]);
         $subquery->groupBy('attendance.studentid,week');
 
         $builder = $this->db->newQuery()->fromSubquery($subquery, 'w');

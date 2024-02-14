@@ -22,13 +22,18 @@ class AthletesModel extends Model
         $builder->select('athletes.firstname,athletes.lastname,gradelevel.name AS grade,gender.team AS gender');
         $builder->join('gender', 'athletes.genderid = gender.id');
         $builder->join('gradelevel', 'athletes.gradelevelid = gradelevel.id');
+        $builder->join('status', 'athletes.statusid = status.id');
         if (!$gender === false) {
             $builder->where('athletes.genderid',$gender);
         }
         if (!$gradelevel === false) {
             $builder->where('athletes.gradelevelid',$gradelevel);
         }
-        $builder->where('gender.name <>','coach');
+        $builder->where([
+            'gender.name <>' => 'coach',
+            'status.status' => 'Active',
+            'schoolyear' => date('Y'),
+        ]);
         $builder->orderBy('athletes.lastname ASC, athletes.firstname ASC');
 
         $query = $builder->get();
