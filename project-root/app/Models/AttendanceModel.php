@@ -49,8 +49,10 @@ class AttendanceModel extends Model
     public function getCheckInsByDate($date)
     {
         $builder = $this->db->table('attendance');
-        $builder->select('athletes.firstname,athletes.lastname');
+        $builder->select('attendance.studentid,athletes.firstname,athletes.lastname,eligibilityissues.name AS eligibilityissue');
         $builder->join('athletes', 'attendance.studentid = athletes.studentid');
+        $builder->join('eligibility', 'attendance.studentid = eligibility.studentid AND eligibility.active = 1','left');
+        $builder->join('eligibilityissues', 'eligibility.eligibilityissueid = eligibilityissues.id','left');
         $builder->where([
             'DATE(checkin)' => $date,
             'athletes.firstname <>' => 'coach',
@@ -60,13 +62,32 @@ class AttendanceModel extends Model
         $query = $builder->get();
         $rows = $query->getResultArray();
 
-        $html = '';
+        $results = array();
         foreach ($rows as $row) {
-            $html .= '<tr><td>' . $row['firstname'] . ' ' . $row['lastname'] . '</td></tr>';
+            if (!array_key_exists($row['studentid'],$results)) {
+                $results[$row['studentid']] = array(
+                    'firstname' => $row['firstname'],
+                    'lastname' => $row['lastname'],
+                    'eligibilityissues' => array($row['eligibilityissue']),
+                );
+            } else {
+                $results[$row['studentid']]['eligibilityissues'][] = $row['eligibilityissue'];
+            }
+        }
+
+        $html = '';
+        foreach ($results as $result) {
+            $html .= '<tr><td class="text-start">' . $result['firstname'] . ' ' . $result['lastname'];
+            foreach ($result['eligibilityissues'] as $issue) {
+                if (!is_null($issue)) {
+                    $html .= '<span class="badge text-bg-danger ms-1">' . $issue . '</span>';
+                }
+            }
+            $html .= '</td></tr>';
         }
         
         $data['html'] = $html;
-        $data['table'] = $rows;
+        $data['table'] = $results;
 
         return $data;
     }

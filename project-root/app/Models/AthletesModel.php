@@ -48,12 +48,5 @@ class AthletesModel extends Model
         $data['table'] = $rows;
 
         return $data;
-
-
-
-
-        $query = $builder->get();
-
-        return $query->getResultArray();
     }
 }
