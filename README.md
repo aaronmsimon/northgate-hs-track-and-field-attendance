@@ -22,13 +22,16 @@
 
 ### Coaches' Features
 1. View student attendance over time
-2. ~~View student roster with filters for gender and grade~~
-3. Export attendance to CSV
+    - Profile page
+    - Calendar displaying attendance
+    - Attendance stats
+2. Export attendance to CSV
 
 ### Fun Features
 1. Add badges (gamification)
 2. Leaderboard ideas
     - Longest check-in streak
+    - Saturday check-ins
 
 ### Formatting
 1. Add flare to design instead of solid background
