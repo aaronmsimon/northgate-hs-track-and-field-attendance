@@ -12,3 +12,4 @@ $routes->get('leaderboard', 'Leaderboard::index');
 $routes->get('coaches','Coaches::index');
 $routes->post('coaches/attendance-by-day','Coaches::attendancebyday');
 $routes->post('coaches/roster','Coaches::roster');
+$routes->get('athlete/(:segment)','Athlete::show/$1');

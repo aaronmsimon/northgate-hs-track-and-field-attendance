@@ -19,7 +19,7 @@ class AthletesModel extends Model
         $db = \Config\Database::connect();
 
         $builder = $db->table('athletes');
-        $builder->select('athletes.firstname,athletes.lastname,gradelevel.name AS grade,gender.team AS gender');
+        $builder->select('athletes.studentid,athletes.firstname,athletes.lastname,gradelevel.name AS grade,gender.team AS gender');
         $builder->join('gender', 'athletes.genderid = gender.id');
         $builder->join('gradelevel', 'athletes.gradelevelid = gradelevel.id');
         $builder->join('status', 'athletes.statusid = status.id');
@@ -41,7 +41,7 @@ class AthletesModel extends Model
 
         $html = '';
         foreach ($rows as $row) {
-            $html .= '<tr><td class="text-start">' . $row['lastname'] . '</td><td class="text-start">' . $row['firstname'] . '</td><td class="text-start">' . $row['grade'] . '</td><td class="text-start">' . $row['gender'] . '</td></tr>';
+            $html .= '<tr><td class="text-start"><a href="athlete/' . $row['studentid'] . '" style="color:#9c1f2e;">' . $row['lastname'] . '</a></td><td class="text-start">' . $row['firstname'] . '</td><td class="text-start">' . $row['grade'] . '</td><td class="text-start">' . $row['gender'] . '</td></tr>';
         }
         
         $data['html'] = $html;

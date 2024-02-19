@@ -91,4 +91,15 @@ class AttendanceModel extends Model
 
         return $data;
     }
+
+    public function getCheckInsByAthlete($studentid) {
+        $builder = $this->db->table('attendance');
+        $builder->select('DATE(checkin) AS checkindate');
+        $builder->where('studentid',$studentid);
+        $builder->orderBy('id ASC');
+
+        $query = $builder->get();
+
+        return $query->getResultArray();
+    }
 }
