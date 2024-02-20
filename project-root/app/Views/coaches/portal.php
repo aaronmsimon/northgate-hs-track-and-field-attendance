@@ -121,7 +121,7 @@ $(document).ready(function(){
                         <?php endforeach ?>
                     </select>
                 </div>
-                <div class="d-flex flex-row mt-3 justify-content-center overflow-scroll" style="max-height: 250px;">
+                <div class="d-flex flex-row mt-3 justify-content-center overflow-auto" style="max-height: 250px;">
                     <table class="table table-warning table-striped">
                         <thead><tr>
                             <th>Last</th>

@@ -1,5 +1,5 @@
         <div class="row mt-4">
-            <div class="col-8 mx-auto">
+            <div class="col-8 mx-auto overflow-auto" style="max-height: 250px;">
                 <table class="table table-light">
                     <thead>
                         <tr>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-8 mx-auto">
+            <div class="col-8 mx-auto overflow-auto" style="max-height: 250px;">
                 <table class="table table-light">
                     <thead>
                         <tr>
