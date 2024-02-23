@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\AttendanceModel;
+use App\Models\AthletesModel;
 
 class Athlete extends BaseController
 {
@@ -14,8 +15,12 @@ class Athlete extends BaseController
 
     public function show($studentid)
     {
-        $model = model(AttendanceModel::class);
-        $data['attendance'] = json_encode($model->getCheckInsByAthlete($studentid));
+        $attendancemodel = model(AttendanceModel::class);
+        $data['attendance'] = json_encode($attendancemodel->getCheckInsByAthlete($studentid));
+
+        $athletesmodel = model(AthletesModel::class);
+        $data['athlete'] = $athletesmodel->getAthleteDetails($studentid);
+        $data['eligibility'] = $athletesmodel->getEligibilityListByAthlete($studentid);
 
         return view('templates/header', ['title' => "Athlete Profile"])
             . view('pages/profile',$data)

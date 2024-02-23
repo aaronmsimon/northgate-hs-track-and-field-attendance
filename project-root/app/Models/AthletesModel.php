@@ -9,16 +9,46 @@ class AthletesModel extends Model
     protected $table = 'athletes';
     protected $primaryKey = 'studentid';
 
+    protected $db;
+
+    public function __construct()
+    {
+        parent::__construct();
+        
+        $this->db = \Config\Database::connect();
+    }
+
     public function findAthlete($studentid)
     {
         return $this->find($studentid);
     }
 
+    public function getAthleteDetails($studentid) {
+        $builder = $this->db->table('athletes a');
+        $builder->select('a.studentid,a.firstname,a.lastname,gl.name AS grade,g.team,a.dob');
+        $builder->join('gender g', 'a.genderid = g.id');
+        $builder->join('gradelevel gl', 'a.gradelevelid = gl.id');
+        $builder->join('status s', 'a.statusid = s.id');
+        $builder->where('a.studentid',$studentid);
+
+        $query = $builder->get();
+        return $query->getRowArray();
+    }
+
+    public function getEligibilityListByAthlete($studentid) {
+        $builder = $this->db->table('athletes');
+        $builder->select('eligibilityissues.name AS eligibilityissue');
+        $builder->join('eligibility', 'athletes.studentid = eligibility.studentid AND eligibility.active = 1','left');
+        $builder->join('eligibilityissues', 'eligibility.eligibilityissueid = eligibilityissues.id','left');
+        $builder->where('athletes.studentid',$studentid);
+
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
     public function getAthletes($gender = false, $gradelevel = false)
     {
-        $db = \Config\Database::connect();
-
-        $builder = $db->table('athletes');
+        $builder = $this->db->table('athletes');
         $builder->select('athletes.studentid,athletes.firstname,athletes.lastname,gradelevel.name AS grade,gender.team AS gender');
         $builder->join('gender', 'athletes.genderid = gender.id');
         $builder->join('gradelevel', 'athletes.gradelevelid = gradelevel.id');

@@ -13,6 +13,7 @@
 | Version | Release Date | Description |
 | --- | --- | --- |
 | 0.1 | 2024-02-09 | MVP |
+| 0.2 | 2024-02-22 | Coaches' Tracking |
 
 ## Backlog
 
@@ -22,8 +23,8 @@
 
 ### Coaches' Features
 1. View student attendance over time
-    - Profile page
-    - Calendar displaying attendance
+    - ~~Profile page~~
+    - ~~Calendar displaying attendance~~
     - Attendance stats
 2. Export attendance to CSV
 

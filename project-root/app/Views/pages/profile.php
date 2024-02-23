@@ -76,6 +76,34 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td rowspan="4" class="align-middle">
+                        <h3><?= $athlete['firstname'] . ' ' . $athlete['lastname'] ?></h3>
+                        <div>
+                            <?php
+                                foreach ($eligibility as $issue) {
+                                    echo '<span class="badge text-bg-danger ms-1">' . $issue['eligibilityissue'] . '</span>';
+                                }
+                            ?>
+                        </div>
+                    </td>
+                    <td>Student ID: <?= $athlete['studentid'] ?></td>
+                </tr>
+                <tr>
+                    <td>Team: <?= $athlete['team'] ?>s</td>
+                </tr>
+                <tr>
+                    <td>Grade: <?= $athlete['grade'] ?></td>
+                </tr>
+                <tr>
+                    <td>DOB: <?= $athlete['dob'] ?></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="mt-3">Attendance</h4>
         <div class="col-10" id="calendar">
             <div class="row my-3">
                 <div class="col" id="month-name">
