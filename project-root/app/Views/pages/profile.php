@@ -15,7 +15,7 @@
         }
 
         function updateMonth() {
-            var year = 2024;
+            var year = new Date().getFullYear();
             var month = $("#cal-month").val();
             var lastDay = new Date(year, month, 0);
             var firstDayOfMonth = new Date(year, month - 1, 1);
@@ -109,7 +109,7 @@
                 <div class="col" id="month-name">
                     <select class="form-select w-auto me-3" id="cal-month">
                         <?php for ($i = 0; $i < 12; $i++): ?>
-                            <option value="<?= $i + 1 ?>" <?php if ($i + 1 == Date('m')) {echo 'selected';}?>><?= date_format(date_create("2024-" . $i + 1 . "-1"),"F") ?></option>
+                            <option value="<?= $i + 1 ?>" <?php if ($i + 1 == Date('m')) {echo 'selected';}?>><?= date_format(date_create(date("Y") . "-" . $i + 1 . "-1"),"F") ?></option>
                         <?php endfor ?>
                     </select>
                 </div>
