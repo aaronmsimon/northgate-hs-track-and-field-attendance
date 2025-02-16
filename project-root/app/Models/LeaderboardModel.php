@@ -26,6 +26,7 @@ class AthletesModel extends Model
             'gender.name <>' => 'coach',
             'status.status' => 'Active',
             'athletes.schoolyear' => date('Y'),
+			'YEAR(checkin)' => date('Y'),
         ]);
         $builder->groupBy('attendance.studentid');
         $builder->orderBy('checkins DESC,athletes.lastname ASC,athletes.firstname ASC');
@@ -46,6 +47,7 @@ class AthletesModel extends Model
             'gender.name <>' => 'coach',
             'status.status' => 'Active',
             'athletes.schoolyear' => date('Y'),
+			'YEAR(checkin)' => date('Y'),
         ]);
         $subquery->groupBy('attendance.studentid,week');
 
